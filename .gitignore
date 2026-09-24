@@ -1,0 +1,4 @@
+.venv/
+.env
+delivery_report.csv
+recipients.csv
