@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
     <title>HearMe — Дякуємо за участь</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
     <style>
-        /* Скидання стилів для поштових клієнтів */
+        /* Скидання базових стилів */
         body {
             margin: 0;
             padding: 0;
@@ -23,8 +34,11 @@
         }
         img {
             border: 0;
+            outline: none;
+            text-decoration: none;
         }
-        /* Адаптивні стилі */
+
+        /* Основні контейнери */
         .wrapper {
             width: 100%;
             table-layout: fixed;
@@ -33,7 +47,7 @@
         }
         .main-card {
             background-color: #ffffff;
-            margin: 30px auto;
+            margin: 30px auto 16px auto;
             width: 100%;
             max-width: 600px;
             border-radius: 12px;
@@ -44,22 +58,14 @@
         .content {
             padding: 36px 32px;
         }
-        .logo-box {
-            text-align: center;
-            padding-bottom: 24px;
-        }
-        .logo-img {
-            width: 72px;
-            height: 72px;
-            border-radius: 14px;
-            display: inline-block;
-        }
+
+        /* Текстові елементи */
         h1 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #1a202c;
             margin-top: 0;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         p {
             font-size: 15px;
@@ -68,6 +74,12 @@
             margin-top: 0;
             margin-bottom: 18px;
         }
+        .link-text {
+            color: #005F73;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
         /* Кнопка дії (CTA) */
         .btn-container {
             margin: 28px 0;
@@ -76,18 +88,15 @@
         .btn-primary {
             background-color: #005F73;
             color: #ffffff !important;
-            padding: 12px 24px;
+            padding: 13px 26px;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
             border-radius: 8px;
             display: inline-block;
         }
-        /* Інформаційні посилання та підвал */
-        .link-text {
-            color: #2b6cb0;
-            text-decoration: underline;
-        }
+
+        /* Підвал картки */
         .footer-section {
             margin-top: 28px;
             padding-top: 20px;
@@ -101,67 +110,137 @@
         .links-row {
             font-size: 13px;
             color: #718096;
+            line-height: 1.6;
         }
         .links-row a {
             color: #4a5568;
             text-decoration: none;
-            margin-right: 14px;
         }
         .links-row a:hover {
             text-decoration: underline;
         }
+
+        /* Зовнішній юридичний підвал */
+        .legal-footer {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #a0aec0;
+            padding: 0 20px;
+        }
+
+        /* Стилі для темної теми (Dark Mode) */
+        @media (prefers-color-scheme: dark) {
+            body, .wrapper {
+                background-color: #0f172a !important;
+            }
+            .main-card {
+                background-color: #1e293b !important;
+                border-color: #334155 !important;
+                box-shadow: none !important;
+            }
+            h1 {
+                color: #f1f5f9 !important;
+            }
+            p {
+                color: #cbd5e1 !important;
+            }
+            .link-text {
+                color: #38bdf8 !important;
+            }
+            .footer-section {
+                border-top-color: #334155 !important;
+            }
+            .footer-note, .links-row, .links-row a {
+                color: #94a3b8 !important;
+            }
+            .legal-footer {
+                color: #64748b !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- ПРИХОВАНИЙ ПРЕХЕДЕР ДЛЯ СПИСКУ ВХІДНИХ ЛИСТІВ -->
+    <div style="display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Фотографії з презентації вже доступні, а також запрошуємо протестувати альфа-версію застосунку HearMe.
+        &#847; &zwnj; &nbsp; &#8199; &shy; &#847; &zwnj; &nbsp; &#8199; &shy; &#847; &zwnj; &nbsp; &#8199; &shy;
+    </div>
+
     <center class="wrapper">
+        <!-- ГОЛОВНА КАРТКА ЛИСТА -->
         <table class="main-card" role="presentation">
             <tr>
                 <td class="content">
-                    <!-- ЛОГОТИП ВГОРІ ПО ЦЕНТРУ (КЛІКАБЕЛЬНИЙ) -->
-                    <div class="logo-box">
-                        <a href="https://hearme.tech/uk" target="_blank" rel="noopener noreferrer" style="text-decoration: none; border: none; display: inline-block;">
-                            <img src="https://hearme.tech/images/logo-full.png" alt="HearMe Logo" class="logo-img" style="border: 0; outline: none; text-decoration: none; display: block;">
-                        </a>
-                    </div>
-
-                    <!-- ТІЛО ЛИСТА -->
+                    <!-- ЗАГОЛОВОК -->
                     <h1>Вітаємо, {{ name }}!</h1>
-                    
+
                     <p>
                         Щиро дякуємо вам за те, що долучилися до презентації <strong>HearMe</strong> — проекту, який допомагає людям із мовними викликами знаходити свій голос і бути почутими. Ваша присутність та підтримка надзвичайно важливі для нашої команди.
                     </p>
                     
                     <p>
-                        Фотографії з заходу вже готові! Ви можете переглянути та завантажити їх за 
-                        <a href="https://drive.google.com/drive/folders/1VPMRFdl3AhOnbYosxvqz16snammjyaD0?usp=sharing" class="link-text" target="_blank">цим посиланням</a>.
+                        Фотографії з заходу вже готові! Ви можете переглянути та завантажити їх, відкривши 
+                        <a href="https://drive.google.com/drive/folders/1VPMRFdl3AhOnbYosxvqz16snammjyaD0?usp=sharing" class="link-text" target="_blank" rel="noopener noreferrer">фотогалерею заходу</a>.
                     </p>
 
-                    <!-- ЗАКЛИК ДО ТЕСТУВАННЯ (ПІДВОДКА ДО КНОПКИ) -->
                     <p>
                         Ми прагнемо створити максимально зручний та чуйний інструмент, і саме ваш досвід та відгуки допоможуть нам зробити <strong>HearMe</strong> по-справжньому дієвим. Запрошуємо вас протестувати альфа-версію застосунку, поділитися враженнями й допомогти нам покращити кожну функцію:
                     </p>
 
-                    <!-- АКЦЕНТНА КНОПКА ДЛЯ ТЕСТУВАННЯ -->
+                    <!-- ВЕКТОРНА КНОПКА З ПІДТРИМКОЮ OUTLOOK (VML) -->
                     <div class="btn-container">
-                        <a href="https://hearme.tech/uk/testing" class="btn-primary" target="_blank">
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://hearme.tech/uk/testing" style="height:46px;v-text-anchor:middle;width:290px;" arcsize="18%" stroke="f" fillcolor="#005F73">
+                            <w:anchorlock/>
+                            <center style="color:#ffffff;font-family:sans-serif;font-size:15px;font-weight:bold;">Долучитися до тестування застосунку</center>
+                        </v:roundrect>
+                        <![endif]-->
+                        <!--[if !mso]><!-->
+                        <a href="https://hearme.tech/uk/testing" class="btn-primary" target="_blank" rel="noopener noreferrer">
                             Долучитися до тестування застосунку
                         </a>
+                        <!--<![endif]-->
                     </div>
 
-                    <!-- ПІДПИС І КОНТАКТИ -->
+                    <!-- ПІДВАЛ З КОНТАКТАМИ ТА ЛОГОТИПОМ -->
                     <div class="footer-section">
-                        <div class="footer-note">
-                            З повагою,<br>
-                            <strong>Команда HearMe</strong>
-                        </div>
-                        <div class="links-row">
-                            🌐 Веб-сайт: <a href="https://hearme.tech/uk" target="_blank">hearme.tech/uk</a><br>
-                            📱 Застосунок: <a href="https://alpha.hearme.tech" target="_blank">alpha.hearme.tech</a>
-                        </div>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <!-- Ліва колонка: Текстовий підпис і посилання -->
+                                <td valign="middle" align="left" style="padding-right: 15px;">
+                                    <div class="footer-note">
+                                        З повагою,<br>
+                                        <strong>Команда HearMe</strong>
+                                    </div>
+                                    <div class="links-row">
+                                        <span aria-hidden="true">🌐</span> Веб-сайт: <a href="https://hearme.tech/uk" target="_blank" rel="noopener noreferrer">hearme.tech</a><br>
+                                        <span aria-hidden="true">📱</span> Застосунок: <a href="https://alpha.hearme.tech" target="_blank" rel="noopener noreferrer">alpha.hearme.tech</a>
+                                    </div>
+                                </td>
+
+                                <!-- Права колонка: Збільшений логотип -->
+                                <td valign="middle" align="right" style="width: 85px;">
+                                    <a href="https://hearme.tech/uk" target="_blank" rel="noopener noreferrer" style="text-decoration: none; border: none; display: inline-block;">
+                                        <img src="https://hearme.tech/images/logo-full.png" 
+                                             alt="HearMe Logo" 
+                                             style="width: 80px; height: 80px; border-radius: 14px; border: 0; outline: none; text-decoration: none; display: block;">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </td>
             </tr>
         </table>
+
+        <!-- ЗОВНІШНІЙ ЮРИДИЧНИЙ ПІДВАЛ (ANTI-SPAM / PRIVACY) -->
+        <div class="legal-footer">
+            Ви отримали цей лист, оскільки були учасником презентації HearMe.<br>
+            Якщо ви отримали його помилково або більше не бажаєте отримувати оновлення, просто дайте відповідь на цей лист.
+        </div>
     </center>
 </body>
 </html>
